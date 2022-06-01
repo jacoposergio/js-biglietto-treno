@@ -32,13 +32,26 @@ console.log("età pass:", passengerAge);
 const fullTicket = travelKm * 0.21;
 console.log("full:", fullTicket);
 
+// Limito il biglietto intero a soli 2 decimali 
+const fullTicketFix = fullTicket.toFixed(2);
+console.log("fullfix:", fullTicketFix);
+
 // Calcolo biglietto over 65
 const ticketOver = fullTicket * 0.6;
 console.log("over:", ticketOver);
 
+// Limito il biglietto over a soli 2 decimali 
+const ticketOverFix = ticketOver.toFixed(2);
+console.log("fullfix:", ticketOverFix);
+
+
 // Calcolo biglietto under 18
 const ticketUnder = fullTicket * 0.8;
 console.log("under", ticketUnder);
+
+// Limito il biglietto under a soli 2 decimali 
+const ticketUnderFix = ticketUnder.toFixed(2);
+console.log("fullfix:", ticketUnderFix);
 
 // se l'età è maggiore di 65 imposto il biglietto scontato al 40%,
 // se l'età è minore di 18 imposto il biglietto scontato al 20%,
@@ -47,14 +60,13 @@ console.log("under", ticketUnder);
 let userMessage;
 
 if (passengerAge > 65) {
-    userMessage = 'Il prezzo del biglietto è di ticketOver euro' ;
+    userMessage = 'Il prezzo del biglietto è di ' + ticketOverFix + ' &euro;' ;
 } else if (passengerAge < 18) {
-    userMessage = 'Il prezzo del biglietto è di ticketUnder euro';
+    userMessage = 'Il prezzo del biglietto è di ' + ticketUnderFix + ' &euro;' ;
 } else {
-    userMessage = 'Il prezzo del biglietto è di fullTicket euro';
+    userMessage = 'Il prezzo del biglietto è di ' + fullTicketFix + ' &euro;' ;
 }
 
 // Stampo il messaggio
 console.log(userMessage);
-
 document.getElementById('user-message').innerHTML = userMessage;
