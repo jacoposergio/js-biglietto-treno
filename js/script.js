@@ -22,20 +22,39 @@
 
 // Scelta utente numero di km + conversione in numeri
 const travelKm =  parseInt( prompt('Inserisci numero di Km') );
-console.log(travelKm)
+console.log("km inseriti: ", travelKm);
 
 // Richiesta età utente + conversione in numeri
 const passengerAge =  parseInt( prompt('Inserire età passeggero') );
-console.log(passengerAge)
+console.log("età pass:", passengerAge);
 
 // Calcolo prezzo biglietto intero 
 const fullTicket = travelKm * 0.21;
-console.log(fullTicket)
+console.log("full:", fullTicket);
 
 // Calcolo biglietto over 65
 const ticketOver = fullTicket * 0.6;
-console.log(ticketOver)
+console.log("over:", ticketOver);
 
 // Calcolo biglietto under 18
 const ticketUnder = fullTicket * 0.8;
-console.log(ticketUnder)
+console.log("under", ticketUnder);
+
+// se l'età è maggiore di 65 imposto il biglietto scontato al 40%,
+// se l'età è minore di 18 imposto il biglietto scontato al 20%,
+// altrimenti imposto il biglietto normale
+
+let userMessage;
+
+if (passengerAge > 65) {
+    userMessage = 'Il prezzo del biglietto è di ticketOver euro' ;
+} else if (passengerAge < 18) {
+    userMessage = 'Il prezzo del biglietto è di ticketUnder euro';
+} else {
+    userMessage = 'Il prezzo del biglietto è di fullTicket euro';
+}
+
+// Stampo il messaggio
+console.log(userMessage);
+
+document.getElementById('user-message').innerHTML = userMessage;
